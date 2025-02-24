@@ -3,7 +3,7 @@
 
 :local remoteIP "XXX.XXX.XXX.XXX"
 
-:if ([:len [/ip ipsec active-peers find where remote-address=$remoteIP]] > 0) do={
+:if ([:len [/ip ipsec active-peers find where remote-address=$remoteIP and state="established"]] > 0) do={
     :put 1
 } else={
     :put 0
